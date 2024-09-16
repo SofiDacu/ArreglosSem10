@@ -40,5 +40,23 @@ document.addEventListener("DOMContentLoaded", (e) => {
   // Escribe tu solución aquí
   // Sugerencia de cómo mostrar el array => showList(strangeArray);
 
+const filtrarString = strangeArray.filter((strangeArray) => typeof strangeArray === "string");
   
+// ahora quiero ordenarlos
+filtrarString.sort();
+
+// Para que no importe si empieza con mayusculas o con minusculas
+
+//sensitivity: 'base': especifica el nivel de sensibilidad
+// que la comparación debe tener con respecto a las diferencias de mayúsculas y minúsculas, tildes, y otros detalles.
+
+//'base': Ignora las diferencias entre mayúsculas y minúsculas, así como los acentos. Por ejemplo, "a" se considera igual que "A" o "á".
+//'accent': Distingue entre letras con y sin acento, pero ignora las mayúsculas y minúsculas. Por ejemplo, "a" sería diferente de "á", pero "a" y "A" se considerarían iguales.
+//'case': Solo distingue entre mayúsculas y minúsculas. "a" sería diferente de "A", pero no distinguiría entre "a" y "á".
+//'variant': Considera todas las diferencias, incluyendo acentos y mayúsculas. Es la más estricta.
+
+const noimportaMm = filtrarString.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+
+// Para mostrar la lista filtrada 
+showList(filtrarString);
 });
